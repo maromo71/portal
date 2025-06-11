@@ -1,0 +1,104 @@
+/* style.css */
+
+/* --- Configurações Globais e Fontes --- */
+body {
+    /* ATUALIZADO: Fonte principal alinhada com o manual de identidade visual do CPS */
+    font-family: 'Open Sans', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Cores Institucionais --- */
+/* COR INSTITUCIONAL VERIFICADA: Vermelho CPS (Pantone 485 C) */
+.cps-red { color: #B32D26; }
+.bg-cps-red { background-color: #B32D26; }
+.border-cps-red { border-color: #B32D26; }
+
+/* --- Estilos para o Card Flip (Pilares POO) --- */
+.flip-card {
+    perspective: 1000px;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.flip-card-back {
+    transform: rotateY(180deg);
+    padding: 1rem;
+}
+
+/* --- Estilos para os Cards de Materiais --- */
+/* Aplicado via Tailwind no HTML, mas pode ser centralizado aqui se desejado */
+.material-card {
+    display: block;
+    background-color: #f9fafb; /* gray-50 */
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease-in-out;
+}
+.material-card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transform: translateY(-0.25rem);
+    background-color: #f3f4f6; /* gray-100 */
+}
+
+/* --- Estilos para o Tema Escuro (Dark Mode) --- */
+html.dark body {
+    background-color: #111827; /* gray-900 */
+    color: #d1d5db; /* gray-300 */
+}
+html.dark header {
+    background-color: #1f2937; /* gray-800 */
+}
+html.dark section.bg-white {
+     background-color: #1f2937; /* gray-800 */
+}
+html.dark h1, html.dark h2 {
+    color: #f9fafb; /* gray-50 */
+}
+html.dark p {
+     color: #9ca3af; /* gray-400 */
+}
+
+/* Dark Mode: Cards Flip */
+html.dark .flip-card-front {
+    background-color: #374151; /* gray-700 */
+    border-color: #4b5563; /* gray-600 */
+}
+ html.dark .flip-card-front h3 {
+    color: #f3f4f6; /* gray-100 */
+}
+
+/* Dark Mode: Cards de Materiais */
+html.dark .material-card {
+    background-color: #374151; /* gray-700 */
+}
+html.dark .material-card:hover {
+    background-color: #4b5563; /* gray-600 */
+}
+html.dark .material-card p {
+    color: #9ca3af; /* gray-400 */
+}
+
+html.dark footer {
+    background-color: #111827; /* gray-900 */
+}
